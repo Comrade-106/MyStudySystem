@@ -10,11 +10,11 @@ namespace MyStudySystem.Domain.Entities
         public string Definition { get; private set; } = string.Empty;
         public Guid CourseId { get; private set; }
 
-        public GlossaryEntry(string term, string definition)
+        public GlossaryEntry(string term, string definition, Guid courseId)
         {
-            GlossaryEntryId = Guid.NewGuid();
             Term = term;
             Definition = definition;
+            CourseId = courseId;
         }
 
         public void UpdateDefinition(string definition)
