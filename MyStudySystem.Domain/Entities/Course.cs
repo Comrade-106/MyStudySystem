@@ -1,5 +1,4 @@
 ﻿using MyStudySystem.Domain.Common;
-using static System.Collections.Specialized.BitVector32;
 
 namespace MyStudySystem.Domain.Entities
 {
@@ -8,8 +7,8 @@ namespace MyStudySystem.Domain.Entities
         public Guid CourseId { get; private set; }
         public string Title { get; private set; }
         public string Author { get; private set; }
-        public TimeSpan Duration { get; private set; }
-        public string Url { get; private set; }
+        public TimeSpan? Duration { get; private set; }
+        public string? Url { get; private set; }
         public Guid UserId { get; private set; }
 
         private readonly List<Section> _sections = new List<Section>();

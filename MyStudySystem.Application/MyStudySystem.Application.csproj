@@ -11,10 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Courses\" />
-    <Folder Include="Features\GlossaryEntries\Queries\" />
     <Folder Include="Features\Sections\" />
-    <Folder Include="Features\ControlQuestions\" />
   </ItemGroup>
 
   <ItemGroup>

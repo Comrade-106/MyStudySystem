@@ -5,7 +5,7 @@ namespace MyStudySystem.Application.Contracts.Persistence
 {
     public interface IControlQuestionRepository : IRepository<ControlQuestion>
     {
-        //Task<IReadOnlyList<ControlQuestion>> GetQuestionsBySectionIdAsync(Guid sectionId);
+        Task<IReadOnlyList<ControlQuestion>> GetQuestionsBySectionIdAsync(Guid sectionId);
     }
 
 }

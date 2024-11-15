@@ -1,7 +1,9 @@
 ﻿
+using MediatR;
+
 namespace MyStudySystem.Application.Features.GlossaryEntries.Queries.GetGlossaryEntryByCourseId
 {
-    public class GetGlossaryEntriesByCourseIdQuery
+    public class GetGlossaryEntriesByCourseIdQuery : IRequest<IReadOnlyList<GlossaryEntryDto>>
     {
         public Guid CourseId { get; set; }
 
