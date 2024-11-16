@@ -7,10 +7,10 @@ namespace MyStudySystem.Domain.Entities
     {
         public Guid SectionId { get; private set; }
         public string Title { get; private set; }
-        public Content Content { get; private set; }
+        public Content? Content { get; private set; }
 
         public Guid? ParentSectionId { get; private set; }
-        public Section ParentSection { get; private set; }
+        public Section? ParentSection { get; private set; }
 
         private readonly List<Section> _subsections = new List<Section>();
         public IReadOnlyCollection<Section> Subsections => _subsections.AsReadOnly();

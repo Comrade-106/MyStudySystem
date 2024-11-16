@@ -9,6 +9,9 @@ using MyStudySystem.Application.Features.Courses.Queries.GetCoursesByUserId;
 using MyStudySystem.Application.Features.GlossaryEntries.Commands.CreateGlossaryEntry;
 using MyStudySystem.Application.Features.GlossaryEntries.Commands.UpdateGlossaryEntry;
 using MyStudySystem.Application.Features.GlossaryEntries.Queries.GetGlossaryEntryByCourseId;
+using MyStudySystem.Application.Features.Sections.Commands.CreateSection;
+using MyStudySystem.Application.Features.Sections.Commands.UpdateSection;
+using MyStudySystem.Application.Features.Sections.Queries.GetSectionsByCourseId;
 using MyStudySystem.Domain.Entities;
 
 namespace MyStudySystem.Application.Profiles
@@ -42,6 +45,22 @@ namespace MyStudySystem.Application.Profiles
 
             // Маппинг из доменной модели в DTO
             CreateMap<ControlQuestion, ControlQuestionDto>();
+
+            // Маппинг из команды создания в доменную модель
+            CreateMap<CreateSectionCommand, Section>()
+                .ForMember(dest => dest.SectionId, opt => opt.Ignore())
+                .ForMember(dest => dest.ParentSection, opt => opt.Ignore())
+                .ForMember(dest => dest.Subsections, opt => opt.Ignore())
+                .ForMember(dest => dest.ControlQuestions, opt => opt.Ignore());
+
+            // Маппинг из команды обновления в существующую доменную модель
+            CreateMap<UpdateSectionCommand, Section>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            // Маппинг из доменной модели в DTO
+            CreateMap<Section, SectionDto>()
+                .ForMember(dest => dest.ContentText, opt => opt.MapFrom(src => src.Content.Text))
+                .ForMember(dest => dest.Subsections, opt => opt.MapFrom(src => src.Subsections));
         }
     }
 }
