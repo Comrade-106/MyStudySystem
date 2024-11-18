@@ -1,16 +1,21 @@
 ﻿
+using MyStudySystem.Domain.Common;
+
 namespace MyStudySystem.Domain.Entities
 {
-    public class Image
+    public class Image : AuditableEntity
     {
-        public string Url { get; private set; }
+        public Guid ImageId { get; private set; }
+        public byte[] Data { get; private set; }
         public string Description { get; private set; }
 
-        public Image(string url, string description = null)
+        public Guid ContentId { get; private set; }
+
+        public Image(byte[] data, string description = null)
         {
-            Url = url;
+            ImageId = Guid.NewGuid();
+            Data = data;
             Description = description;
         }
     }
-
 }

@@ -1,6 +1,6 @@
 ﻿namespace MyStudySystem.Application.Contracts.Persistence
 {
-    public interface IRepository<T> where T : class
+    public interface IBaseRepository<T> where T : class
     {
         Task<T> GetByIdAsync(Guid id);
         Task<IReadOnlyList<T>> ListAllAsync();
