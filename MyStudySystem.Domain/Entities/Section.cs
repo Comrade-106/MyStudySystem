@@ -20,14 +20,14 @@ namespace MyStudySystem.Domain.Entities
 
         public Guid CourseId { get; private set; }
 
-        public Section(string title, Content content, Guid courseId, Section parentSection = null)
+        private Section() { }
+
+        public Section(string title, Guid courseId, Guid? parentSection = null)
         {
             SectionId = Guid.NewGuid();
             Title = title;
-            Content = content;
             CourseId = courseId;
-            ParentSection = parentSection;
-            ParentSectionId = parentSection?.SectionId;
+            ParentSectionId = parentSection;
         }
 
         public void AddSubsection(Section subsection)

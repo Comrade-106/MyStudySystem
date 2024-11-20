@@ -16,7 +16,7 @@ namespace MyStudySystem.Domain.Entities
 
         public Glossary Glossary { get; private set; }
 
-        public Course(string title, string author, TimeSpan duration, string url, Guid userId)
+        public Course(string title, string author, TimeSpan? duration, string url, Guid userId)
         {
             CourseId = Guid.NewGuid();
             Title = title;

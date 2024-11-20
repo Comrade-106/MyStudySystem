@@ -1,6 +1,8 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using MyStudySystem.Api;
 
-app.MapGet("/", () => "Hello World!");
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.ConfigureService().ConfigurePipeline();
+
+await app.ResetDatabaseAsync();
 
 app.Run();

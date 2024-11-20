@@ -8,10 +8,9 @@ namespace MyStudySystem.Domain.Entities
         public Guid UserId { get; private set; }
         public Language PreferredLanguage { get; private set; }
 
-        public User(Guid userId, Language preferredLanguage)
+        public User(Guid userId)
         {
             UserId = userId;
-            PreferredLanguage = preferredLanguage;
         }
 
         public void ChangePreferredLanguage(Language language)

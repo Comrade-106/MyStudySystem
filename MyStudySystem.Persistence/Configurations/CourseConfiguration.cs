@@ -42,6 +42,8 @@ namespace MyStudySystem.Persistence.Configurations
                 .WithOne()
                 .HasForeignKey(ge => ge.CourseId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Ignore(c => c.Glossary);
         }
     }
 }
